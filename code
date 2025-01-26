@@ -1,0 +1,719 @@
+import React, { useState } from "react";
+import { MemoryRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight,
+  Building2,
+  Home,
+  Users,
+  Clock,
+  Target,
+  Award,
+  Calendar,
+  CheckSquare,
+  Building,
+  BedDouble,
+  Square,
+} from "lucide-react";
+export function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  return (
+    <Router>
+      <div className="w-full min-h-screen bg-white">
+        <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex-shrink-0">
+                <span className="text-2xl font-bold text-blue-900">
+                  BuildCo
+                </span>
+              </div>
+              <div className="hidden md:flex items-center space-x-8">
+                <Link to="/" className="text-gray-700 hover:text-blue-900">
+                  Home
+                </Link>
+                <Link to="/about" className="text-gray-700 hover:text-blue-900">
+                  About
+                </Link>
+                <Link
+                  to="/services"
+                  className="text-gray-700 hover:text-blue-900"
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/portfolio"
+                  className="text-gray-700 hover:text-blue-900"
+                >
+                  Portfolio
+                </Link>
+                <Link
+                  to="/contact"
+                  className="text-gray-700 hover:text-blue-900"
+                >
+                  Contact
+                </Link>
+                <button className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors">
+                  Get Quote
+                </button>
+              </div>
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-gray-700 hover:text-blue-900"
+                >
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+            </div>
+          </div>
+          {isMenuOpen && (
+            <div className="md:hidden">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <Link
+                  to="/"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-900"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-900"
+                >
+                  About
+                </Link>
+                <Link
+                  to="/services"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-900"
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/portfolio"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-900"
+                >
+                  Portfolio
+                </Link>
+                <Link
+                  to="/contact"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-900"
+                >
+                  Contact
+                </Link>
+                <button className="w-full mt-2 bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors">
+                  Get Quote
+                </button>
+              </div>
+            </div>
+          )}
+        </nav>
+        <main className="pt-16">
+          <section
+            className="relative h-[80vh] bg-cover bg-center"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`,
+            }}
+          >
+            <div className="absolute inset-0 bg-blue-900/70"></div>
+            <div className="relative max-w-7xl mx-auto px-4 h-full flex flex-col justify-center">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                Building Your Vision,
+                <br />
+                Exceeding Expectations
+              </h1>
+              <p className="text-xl text-white mb-8 max-w-2xl">
+                We specialize in bringing your construction dreams to life with
+                precision, quality, and innovation. From residential to
+                commercial projects, we build the future.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-colors">
+                  Get Started
+                </button>
+                <button className="bg-white text-blue-900 px-8 py-3 rounded-md hover:bg-gray-100 transition-colors">
+                  View Projects
+                </button>
+              </div>
+            </div>
+          </section>
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4">
+              <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">
+                Our Services
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    icon: <Building2 size={32} />,
+                    title: "Commercial Construction",
+                    description:
+                      "State-of-the-art commercial buildings and facilities built to last.",
+                  },
+                  {
+                    icon: <Home size={32} />,
+                    title: "Residential Projects",
+                    description:
+                      "Custom homes and renovations tailored to your lifestyle.",
+                  },
+                  {
+                    icon: <div size={32} />,
+                    title: "Renovations",
+                    description:
+                      "Modernize and upgrade your existing space with our expertise.",
+                  },
+                ].map((service, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="text-orange-500 mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-semibold text-blue-900 mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600">{service.description}</p>
+                    <button className="mt-4 text-orange-500 font-medium flex items-center gap-1 hover:text-orange-600">
+                      Learn More <ChevronRight size={16} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-blue-900 mb-4">
+                  Under Construction — Reserve Your Apartment Today!
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Secure your future home in our premium residential
+                  developments. Early reservation gives you the best choice of
+                  units and special pre-construction prices.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                {[
+                  {
+                    name: "SkyLine Residences",
+                    image:
+                      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    completion: "December 2024",
+                    progress: 65,
+                    floors: 25,
+                    units: 120,
+                    startingPrice: "$450,000",
+                    location: "Downtown District",
+                    availableUnits: 45,
+                  },
+                  {
+                    name: "Garden Heights",
+                    image:
+                      "https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    completion: "March 2025",
+                    progress: 35,
+                    floors: 18,
+                    units: 90,
+                    startingPrice: "$380,000",
+                    location: "Green Valley",
+                    availableUnits: 65,
+                  },
+                ].map((project, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="relative h-64">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm">
+                        {project.availableUnits} Units Available
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-2xl font-bold text-blue-900 mb-2">
+                        {project.name}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{project.location}</p>
+                      <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="flex items-center gap-2">
+                          <Building size={20} className="text-orange-500" />
+                          <span className="text-gray-600">
+                            {project.floors} Floors
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Home size={20} className="text-orange-500" />
+                          <span className="text-gray-600">
+                            {project.units} Units
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar size={20} className="text-orange-500" />
+                          <span className="text-gray-600">
+                            {project.completion}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div size={20} className="text-orange-500" />
+                          <span className="text-gray-600">
+                            From {project.startingPrice}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="mb-6">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-sm font-medium text-gray-600">
+                            Construction Progress
+                          </span>
+                          <span className="text-sm font-medium text-blue-900">
+                            {project.progress}%
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-orange-500 h-2 rounded-full"
+                            style={{
+                              width: `${project.progress}%`,
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                      <div className="flex gap-4">
+                        <button className="flex-1 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors">
+                          Reserve Now
+                        </button>
+                        <button className="flex-1 border border-blue-900 text-blue-900 px-4 py-2 rounded-md hover:bg-blue-900 hover:text-white transition-colors">
+                          View Details
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-bold text-blue-900 mb-6">
+                  Available Apartment Types
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {[
+                    {
+                      type: "Studio Apartment",
+                      size: "450-550 sq ft",
+                      priceRange: "$380,000 - $420,000",
+                      available: 15,
+                    },
+                    {
+                      type: "2 Bedroom Apartment",
+                      size: "850-950 sq ft",
+                      priceRange: "$580,000 - $650,000",
+                      available: 25,
+                    },
+                    {
+                      type: "3 Bedroom Apartment",
+                      size: "1200-1400 sq ft",
+                      priceRange: "$780,000 - $900,000",
+                      available: 10,
+                    },
+                  ].map((type, index) => (
+                    <div
+                      key={index}
+                      className="border border-gray-200 rounded-lg p-6"
+                    >
+                      <h4 className="text-lg font-semibold text-blue-900 mb-4">
+                        {type.type}
+                      </h4>
+                      <div className="space-y-2 text-gray-600 mb-4">
+                        <div className="flex items-center gap-2">
+                          <div size={18} />
+                          <span>{type.size}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckSquare size={18} />
+                          <span>{type.available} Units Available</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Square size={18} />
+                          <span>{type.priceRange}</span>
+                        </div>
+                      </div>
+                      <button className="w-full bg-gray-50 text-blue-900 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                        View Floor Plan
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-12 text-center">
+                <button className="bg-blue-900 text-white px-8 py-3 rounded-md hover:bg-blue-800 transition-colors inline-flex items-center gap-2">
+                  Schedule a Viewing
+                  <Calendar size={20} />
+                </button>
+              </div>
+            </div>
+          </section>
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4">
+              <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">
+                Our Projects
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Modern Office Complex",
+                    category: "Commercial",
+                  },
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Luxury Residence",
+                    category: "Residential",
+                  },
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Shopping Mall",
+                    category: "Commercial",
+                  },
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Modern Villa",
+                    category: "Residential",
+                  },
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Corporate Headquarters",
+                    category: "Commercial",
+                  },
+                  {
+                    image:
+                      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+                    title: "Renovation Project",
+                    category: "Renovation",
+                  },
+                ].map((project, index) => (
+                  <div
+                    key={index}
+                    className="group relative overflow-hidden rounded-lg"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                      <h3 className="text-xl font-semibold text-white">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-200">{project.category}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-12">
+                <button className="bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-colors">
+                  View All Projects
+                </button>
+              </div>
+            </div>
+          </section>
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-3xl font-bold text-blue-900 mb-6">
+                    About BuildCo
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    Since 1995, BuildCo has been at the forefront of the
+                    construction industry, delivering exceptional projects that
+                    transform communities and exceed client expectations. Our
+                    commitment to quality, innovation, and customer satisfaction
+                    has made us a trusted name in both residential and
+                    commercial construction.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="text-center">
+                      <div className="text-orange-500 text-4xl font-bold mb-2">
+                        25+
+                      </div>
+                      <div className="text-gray-600">Years Experience</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-orange-500 text-4xl font-bold mb-2">
+                        500+
+                      </div>
+                      <div className="text-gray-600">Projects Completed</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-orange-500 text-4xl font-bold mb-2">
+                        100%
+                      </div>
+                      <div className="text-gray-600">Client Satisfaction</div>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="text-orange-500 mt-1">
+                        <Clock size={24} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-blue-900 mb-1">
+                          Our History
+                        </h3>
+                        <p className="text-gray-600">
+                          Founded with a vision to revolutionize the
+                          construction industry through innovation and
+                          excellence.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="text-orange-500 mt-1">
+                        <Target size={24} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-blue-900 mb-1">
+                          Our Mission
+                        </h3>
+                        <p className="text-gray-600">
+                          To deliver exceptional construction solutions while
+                          maintaining the highest standards of quality and
+                          safety.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="text-orange-500 mt-1">
+                        <Award size={24} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-blue-900 mb-1">
+                          Our Values
+                        </h3>
+                        <p className="text-gray-600">
+                          Integrity, excellence, innovation, and commitment to
+                          customer satisfaction guide everything we do.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                      alt="Construction site"
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1581094794329-c8112c4419a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                      alt="Team meeting"
+                      className="w-full h-64 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="space-y-4 pt-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                      alt="Architecture planning"
+                      className="w-full h-64 object-cover rounded-lg"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                      alt="Team collaboration"
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <h2 className="text-3xl font-bold text-blue-900 mb-6">
+                    Get in Touch
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    Ready to start your project? Contact us for a free
+                    consultation and let's discuss how we can bring your vision
+                    to life.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white">
+                        <Phone size={24} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Call Us</p>
+                        <p className="text-lg font-medium text-blue-900">
+                          +1 (555) 123-4567
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white">
+                        <Mail size={24} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Email Us</p>
+                        <p className="text-lg font-medium text-blue-900">
+                          contact@buildco.com
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white">
+                        <MapPin size={24} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Visit Us</p>
+                        <p className="text-lg font-medium text-blue-900">
+                          123 Construction Ave, City
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 p-8 rounded-lg">
+                  <form className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                        placeholder="Your email"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Message
+                      </label>
+                      <textarea
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                        rows={4}
+                        placeholder="Your message"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors"
+                    >
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+          <footer className="bg-blue-900 text-white py-12">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                  <span className="text-2xl font-bold">BuildCo</span>
+                  <p className="mt-4 text-gray-300">
+                    Building excellence through innovation and dedication.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link to="/" className="text-gray-300 hover:text-white">
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/about"
+                        className="text-gray-300 hover:text-white"
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/services"
+                        className="text-gray-300 hover:text-white"
+                      >
+                        Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/portfolio"
+                        className="text-gray-300 hover:text-white"
+                      >
+                        Portfolio
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Services</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <a href="#" className="text-gray-300 hover:text-white">
+                        Commercial
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-300 hover:text-white">
+                        Residential
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-300 hover:text-white">
+                        Renovation
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-300 hover:text-white">
+                        Consulting
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Contact</h3>
+                  <ul className="space-y-2">
+                    <li className="text-gray-300">123 Construction Ave</li>
+                    <li className="text-gray-300">City, State 12345</li>
+                    <li className="text-gray-300">+1 (555) 123-4567</li>
+                    <li className="text-gray-300">contact@buildco.com</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="border-t border-blue-800 mt-12 pt-8 text-center text-gray-300">
+                <p>&copy; 2023 BuildCo. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </Router>
+  );
+}
